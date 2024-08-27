@@ -95,11 +95,18 @@ app.get("/",SignupMiddleware,async(req,res)=>{
   }
 })
 
-// app.post('/add', SignupMiddleware, async (req, res) => {
-//   let user = new Users(req.body);
-//   let result = await user.save();
-//   res.send(result);
-// });
+app.get('/add', SignupMiddleware, async (req, res) => {
+  let user=Signup.findById(req.user1.id)
+  if(user){
+    res.send("adiing student page")
+  }
+});
 
+app.get('/delete', SignupMiddleware, async (req, res) => {
+  let user=Signup.findById(req.user1.id)
+  if(user){
+    res.send("delet student page")
+  }
+});
 
 app.listen(4000);
